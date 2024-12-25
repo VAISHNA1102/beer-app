@@ -1,0 +1,220 @@
+/* Main Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #fdf8e2 0%, #f8e3ff 100%);
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Input Styles */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border: 3px solid #ffd93d;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Beer Grid Layout */
+.beer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+/* Beer Card Styles */
+.beer-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.beer-card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #ffd93d;
+}
+
+.beer-image-container {
+  position: relative;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ffe8cc, #ffdde1);
+}
+
+.beer-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transition: transform 0.3s ease;
+}
+
+.beer-card:hover .beer-image {
+  transform: scale(1.05);
+}
+
+.beer-content {
+  padding: 20px;
+  background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
+}
+
+.beer-title {
+  font-size: 1.4rem;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.beer-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.beer-price {
+  background-color: #ffe8cc;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #ff8c42;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(255, 140, 66, 0.2);
+}
+
+.beer-rating {
+  background-color: #fff3cd;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #ffd93d;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(255, 217, 61, 0.2);
+}
+
+.beer-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffe8cc;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ffe8cc;
+  border-top: 5px solid #ff6b6b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* No Results State */
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: 2px dashed #ffd93d;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 217, 61, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 217, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 217, 61, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .search-input {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  .beer-grid {
+    gap: 15px;
+  }
+}
